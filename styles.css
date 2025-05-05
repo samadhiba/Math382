@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    color: rgb(211, 212, 212);
+    background-color: hsl(138, 10%, 80%); 
+}
+
+header {
+    margin: 20px;
+    padding: 30px;
+    background-color: rgb(75, 96, 77); 
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title {
+    font-size: 36px; /* Resize the CryptoPhish title */
+    margin-right: 20px;
+    color: #fff;     /* Make it white or any color you like */
+}
+
+.button-group {
+    display: flex;
+    gap: 100px; /* More space between buttons */
+    margin-top: 10px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(75, 96, 77);
+    border: 2px solid white;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.search-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    outline: none;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    background-color: rgb(75, 96, 77);
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
