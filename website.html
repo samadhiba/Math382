@@ -10,20 +10,24 @@
 <header>
     <h1 class="title">CryptoPhish</h1>
     <div class="button-group">
-        <button>Button 1</button>
-        <button>Button 2</button>
-        <button>Button 3</button>
-        <button>Button 4</button>
-        <button>Button 5</button>
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='report.html'">Submit Phishing</button>
+        <button onclick="location.href='check.html'">Check URL</button>
+        <button onclick="location.href='faq.html'">FAQ</button>
+        <button onclick="location.href='about.html'">About</button>
     </div>
 </header>
 
 <div class="search-container">
-    <input type="text" class="search-bar" placeholder="Search...">
-    <button class="search-button">Search</button>
+    <form action="http://127.0.0.1:5000/check" method="POST">
+        <input type="text" name="url" class="search-bar" placeholder="Enter a URL or hash">
+        <button type="submit" class="search-button">Check</button>
+    </form>
 </div>
 
 </body>
 </html>
+
+
 
 
