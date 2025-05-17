@@ -70,3 +70,22 @@ button:hover {
 .search-button:hover {
     background-color: #45a049;
 }
+
+.result-box {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  .explanation-box {
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    width: 60%;
+    font-size: 1em;
+    color: #333;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
