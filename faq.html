@@ -20,36 +20,64 @@
 
   <section class="faq-section">
     <h2>Frequently Asked Questions</h2>
+    <p class="faq-intro">This page explains the cryptographic logic, design choices, and user protections behind CryptoPhish. Click on any question to learn more.</p>
 
-    <div class="faq-item">
-      <h3>❓ Why do you hash URLs instead of storing them directly?</h3>
-      <p>We prioritize user privacy. Instead of storing raw URLs, we use SHA-256 hashes to anonymize the data. This ensures that your browsing or input remains secure while still enabling phishing detection through hash comparisons.</p>
-    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-question">🔒 Why hash URLs instead of storing them?</button>
+        <div class="accordion-answer">
+          <p>We use SHA-256 hashing to ensure user privacy. When a URL is submitted, it’s transformed into a cryptographic hash—a string of fixed-length characters that reveals nothing about the original input. This lets us match known threats without ever storing or exposing full URLs.</p>
+        </div>
+      </div>
 
-    <div class="faq-item">
-      <h3>❓ How reliable is SHA-256 for phishing detection?</h3>
-      <p>SHA-256 is a cryptographic hash function that provides a fixed-length output from any input. It’s collision-resistant, meaning it's unlikely two URLs will hash to the same value. While SHA-256 doesn’t *detect* phishing directly, it allows us to maintain a secure blacklist of known threats without storing sensitive URLs.</p>
-    </div>
+      <div class="accordion-item">
+        <button class="accordion-question">🧠 How does SHA-256 help prevent phishing?</button>
+        <div class="accordion-answer">
+          <p>While SHA-256 doesn't *detect* phishing on its own, it provides a secure method to track known malicious URLs. It acts like a digital fingerprint: if a URL has been previously flagged and hashed, we can match it instantly—without revealing the original input or risking data exposure.</p>
+        </div>
+      </div>
 
-    <div class="faq-item">
-      <h3>❓ How does CryptoPhish verify a threat?</h3>
-      <p>We combine community-submitted reports with technical indicators like SSL certificate checks, domain age, and pattern matching. Our system flags known bad hashes and encourages human judgment through transparency, not black-box models.</p>
-    </div>
+      <div class="accordion-item">
+        <button class="accordion-question">📊 What happens when a URL is flagged?</button>
+        <div class="accordion-answer">
+          <p>Flagged hashes trigger a warning on screen. Behind the scenes, our system also logs it for future analysis and alerts moderators if needed. We don’t just store these hashes—we learn from them, improving detection patterns through a combination of logic, frequency, and user reports.</p>
+        </div>
+      </div>
 
-    <div class="faq-item">
-      <h3>❓ What happens when a URL is flagged?</h3>
-      <p>If a submitted URL hash matches our database, it will display a red warning along with an explanation. If a user submits a new report, our team (or algorithm, depending on deployment stage) reviews it for indicators of phishing before adding it to the database.</p>
-    </div>
+      <div class="accordion-item">
+        <button class="accordion-question">🧪 How does CryptoPhish detect threats?</button>
+        <div class="accordion-answer">
+          <p>We layer SHA-256 hash matching with SSL certificate validation, age-of-domain checks, and pattern recognition. This helps us identify both known and emerging threats. Users can also submit hashes they suspect are dangerous, making the system smarter through community insight.</p>
+        </div>
+      </div>
 
-    <div class="faq-item">
-      <h3>❓ Can a “clean” result still be dangerous?</h3>
-      <p>Yes. A “clean” status simply means the URL is not in our current hash database. Phishing is an evolving threat, so users should always proceed with caution. Look for signs of urgency, spelling mistakes, suspicious attachments, or unexpected requests for sensitive data.</p>
-    </div>
+      <div class="accordion-item">
+        <button class="accordion-question">⚠️ Is a “clean” result always safe?</button>
+        <div class="accordion-answer">
+          <p>Not necessarily. A “clean” result only means we haven’t seen that URL hash before. Users should still look for red flags: urgency cues, bad grammar, suspicious links, and requests for sensitive info. CryptoPhish is a tool—not a guarantee—and we encourage layered caution.</p>
+        </div>
+      </div>
 
-    <div class="faq-item">
-      <h3>❓ How does this project connect to cryptography concepts?</h3>
-      <p>CryptoPhish applies concepts like entropy, collision resistance, and hash table design to ensure secure threat detection. We also plan to add math explainers on topics like modular arithmetic and SSL handshake validation for educational purposes.</p>
+      <div class="accordion-item">
+        <button class="accordion-question">🔍 How does this connect to cryptography?</button>
+        <div class="accordion-answer">
+          <p>CryptoPhish applies cryptographic principles such as one-way hashing, entropy analysis, and SSL verification. We turn textbook ideas—like hash collisions and modular expiration checks—into real, user-facing tools that empower digital safety without sacrificing clarity.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <script>
+    const items = document.querySelectorAll(".accordion-question");
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        const currentlyOpen = document.querySelector(".accordion-answer.open");
+        if (currentlyOpen && currentlyOpen !== item.nextElementSibling) {
+          currentlyOpen.classList.remove("open");
+        }
+        item.nextElementSibling.classList.toggle("open");
+      });
+    });
+  </script>
 </body>
 </html>
