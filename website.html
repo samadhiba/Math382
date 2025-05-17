@@ -12,18 +12,64 @@
     <div class="button-group">
         <button onclick="location.href='website.html'">Home</button>
         <button onclick="location.href='report.html'">Submit Phishing</button>
-        <button onclick="location.href='check.html'">Check URL</button>
+        <button onclick="location.href='check.html'">Threat Stats</button>
         <button onclick="location.href='faq.html'">FAQ</button>
         <button onclick="location.href='about.html'">About</button>
     </div>
 </header>
 
+
 <div class="search-container">
-    <form action="http://127.0.0.1:5000/check" method="POST">
-        <input type="text" name="url" class="search-bar" placeholder="Enter a URL or hash">
-        <button type="submit" class="search-button">Check</button>
+    <form onsubmit="event.preventDefault(); checkURL();">
+      <input type="text" id="urlInput" class="search-bar" placeholder="Enter a URL or hash" required />
+      <button type="submit" class="search-button">Check</button>
     </form>
-</div>
+    <div id="result"></div>
+    <div id="explain"></div>
+  </div>
+
+<script>
+    // Fake malicious hashes (e.g., hash of "http://bad.com")
+    const maliciousHashes = [
+      "f2ba98a61a867fe31c7c4cb5107a72f9de0c6f5862d15a5ff55bdbf31bb80e61",
+      "3f786850e387550fdab836ed7e6dc881de23001b" // example placeholder
+    ];
+
+    // SHA-256 hash function
+    async function sha256(text) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // Check function
+    async function checkURL() {
+      const input = document.getElementById("urlInput").value.trim().toLowerCase();
+      const resultDiv = document.getElementById("result");
+      const explainDiv = document.getElementById("explain");
+
+      if (!input) return;
+
+      const isRawHash = /^[a-f0-9]{64}$/i.test(input); // If it's already a SHA-256 hash
+      const hash = isRawHash ? input : await sha256(input);
+      const isMalicious = maliciousHashes.includes(hash);
+
+      resultDiv.innerHTML = isMalicious
+        ? `<span style="color:red;">❌ Malicious URL Detected</span>`
+        : `<span style="color:green;">✅ Clean (No Match Found)</span>`;
+
+      explainDiv.innerHTML = `
+        <p><strong>SHA-256 Hash:</strong> ${hash}</p>
+        <p>This input was ${isRawHash ? "interpreted as a hash" : "converted to a SHA-256 hash"}.</p>
+        <p>${isMalicious
+          ? "This hash matches a known phishing URL in our database."
+          : "No match found in the known phishing list. This does not guarantee the URL is safe."}</p>
+      `;
+    }
+  </script>
+ 
 
 </body>
 </html>
