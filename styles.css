@@ -307,7 +307,6 @@ button:hover {
     line-height: 1.4;
   }
   
-  /* === About Section (3D Cards) === */
   
   .about-section {
     width: 100%;
@@ -374,4 +373,76 @@ button:hover {
     margin-top: 15px;
     max-width: 100%;
     border-radius: 6px;
+  }
+
+  .submit-section {
+    max-width: 800px;
+    margin: 60px auto;
+    background-color: #eaf1ec;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+  }
+  
+  .submit-section h2 {
+    text-align: center;
+    color: rgb(75, 96, 77);
+    margin-bottom: 20px;
+  }
+  
+  .submit-intro {
+    font-size: 16px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #444;
+  }
+  
+  .submit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .submit-form label {
+    font-weight: 600;
+  }
+  
+  .submit-form input,
+  .submit-form select,
+  .submit-form textarea {
+    font-size: 15px;
+    padding: 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+  }
+  
+  .submit-form button {
+    background-color: rgb(75, 96, 77);
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .thank-you-message {
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-top: 30px;
+  }
+  
+  .hidden {
+    display: none;
   }

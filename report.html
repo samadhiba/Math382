@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Submit Suspicious URL - CryptoPhish</title>
 </head>
-
 <body>
-    <header>
-        <h1 class="title">CryptoPhish</h1>
-        <div class="button-group">
-            <button onclick="location.href='website.html'">Home</button>
-            <button onclick="location.href='report.html'">Submit Phishing</button>
-            <button onclick="location.href='check.html'">Check URL</button>
-            <button onclick="location.href='faq.html'">FAQ</button>
-            <button onclick="location.href='about.html'">About</button>
-        </div>
-    </header>
+  <header>
+    <h1 class="title">CryptoPhish</h1>
+    <div class="button-group">
+      <button onclick="location.href='website.html'">Home</button>
+      <button onclick="location.href='report.html'">Submit Phishing</button>
+      <button onclick="location.href='stats.html'">Threat Stats</button>
+      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="location.href='about.html'">About</button>
+    </div>
+  </header>
 
+  <section class="submit-section">
+    <h2>Submit a Suspicious URL</h2>
+    <p class="submit-intro">
+      Thank you for helping us improve phishing detection. Once you submit, we will anonymize your URL and evaluate it using our hashing and SSL validation tools. If flagged, it will be marked and monitored promptly.
+    </p>
+
+    <form id="submitForm" class="submit-form" onsubmit="handleSubmit(event)">
+      <label for="urlInput">Suspicious URL:</label>
+      <input type="url" id="urlInput" name="url" placeholder="https://example.com" required />
+
+      <label for="reason">Why do you believe it's suspicious?</label>
+      <select id="reason" name="reason" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="login">It mimicked a login or credential page</option>
+        <option value="payment">It asked for payment or financial info</option>
+        <option value="spoofed">It looked like a spoofed brand or institution</option>
+        <option value="shortened">It used a shortened or hidden link</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="details">Optional: What specifically made it suspicious?</label>
+      <textarea id="details" name="details" rows="4" placeholder="Ex: The page had poor spelling, loaded slowly, or linked to odd domains..."></textarea>
+
+      <button type="submit">Submit Report</button>
+    </form>
+
+    <div id="thankYouMessage" class="thank-you-message hidden">
+      <h3>Thank you for your submission!</h3>
+      <p>
+        Your input helps us build a stronger community defense against phishing. This URL will be reviewed and, if verified, added to our monitoring system. Your effort makes a difference.
+      </p>
+    </div>
+  </section>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      document.getElementById("submitForm").classList.add("hidden");
+      document.getElementById("thankYouMessage").classList.remove("hidden");
+    }
+  </script>
 </body>
 </html>
