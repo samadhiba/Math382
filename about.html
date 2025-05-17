@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="styles.css" />
   <title>About - CryptoPhish</title>
@@ -18,64 +19,61 @@
     </div>
   </header>
 
-  <section class="about-visual-container">
-    <!-- You can add real images here -->
-    <img src="inspiration.png" alt="SOC team inspiration" class="about-image" />
-    <img src="phishing-concept.png" alt="phishing visual" class="about-image" />
+  <section class="about-stats-section">
+    <h2>Why CryptoPhish Matters</h2>
+    <p class="stats-caption">
+      Phishing isn’t just a technical nuisance—it’s a global cybersecurity crisis. Each of these facts highlights why CryptoPhish is both urgent and necessary.
+    </p>
+  
+    <div class="stat-grid">
+      <div class="stat-card">
+        <img src="fact1.png" alt="83% of orgs attacked" />
+        <p><strong>83%</strong> of organizations experienced phishing attacks last year.<br><em>(Proofpoint, 2024)</em></p>
+      </div>
+      <div class="stat-card">
+        <img src="fact2.png" alt="ROI from training" />
+        <p>Organizations gain <strong>$5</strong> in ROI for every $1 spent on security training.<br><em>(Aberdeen, 2024)</em></p>
+      </div>
+      <div class="stat-card">
+        <img src="fact3.png" alt="1.5 million phishing emails" />
+        <p><strong>1.5 million phishing emails</strong> are sent daily with increasingly advanced techniques.<br><em>(PhishLabs, 2024)</em></p>
+      </div>
+    </div>
   </section>
 
   <section class="about-section">
     <h2>Behind CryptoPhish</h2>
 
-    <div class="about-block">
-      <h3>Inspiration from the Field</h3>
-      <p>
-        CryptoPhish was born from firsthand cybersecurity experience. While interning in a Security Operations Center, Ikran Khalif analyzed real phishing threats daily. From spoofed login pages to invoice scams, it became clear that phishing isn’t just technical—it’s emotional and social. <span class="tooltip" data-tooltip="Emails designed to trick users into giving up sensitive data.">Phishing</span> thrives on fear, urgency, and curiosity. This project aims to slow users down, make detection feel accessible, and build trust through transparency.
-      </p>
-    </div>
-
-    <div class="about-block">
-      <h3>Our Approach to Privacy</h3>
-      <div class="about-columns">
-        <div>
-          <p>
-            We never store full URLs. Instead, we hash every input with <span class="tooltip" data-tooltip="A one-way cryptographic function used to protect data.">SHA-256</span>, turning even dangerous links into anonymized fingerprints. This lets us protect users without peeking into their activity.
-          </p>
-        </div>
-        <div>
-          <!-- Insert custom graphic or math animation here -->
-          <img src="hashing-diagram.png" alt="SHA-256 process" class="about-image-small" />
-        </div>
-      </div>
-    </div>
-
-    <div class="about-block interactive-block">
-      <h3 onclick="toggleFuture()">Future Projections <span class="expand-icon">+</span></h3>
-      <div id="future-content" class="hidden">
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Inspiration from the Field</h3>
         <p>
-          In later versions, CryptoPhish will support full email body analysis. Users will paste suspicious emails into a secure sandbox, where red flags like QR codes, urgency wording, and malformed domains will be highlighted. Embedded links will be hashed and checked instantly. We also plan to add visual cryptography explainers, interactive learning quizzes, and community scoring tools.
-        </p>
-        <p>
-          Longer term, we hope to turn CryptoPhish into an educational portal—a bridge between cryptography concepts and everyday digital safety. Think: SSL validation visualizers, entropy heat maps, and real-time hash collision demos.
+          CryptoPhish was born from firsthand cybersecurity experience. While interning in a Security Operations Center, Ikran Khalif analyzed real phishing threats daily. From spoofed login pages to invoice scams, it became clear that phishing isn’t just technical—it’s emotional and social. Phishing thrives on fear, urgency, and curiosity. This project aims to slow users down, make detection feel accessible, and build trust through transparency.
         </p>
       </div>
-    </div>
 
-    <div class="about-block">
-      <h3>Built for Security, Designed to Teach</h3>
-      <p>
-        We dont want users to just click “Scan” and leave. Every result on CryptoPhish includes a short explanation: how SHA-256 works, why hashes are safer, and how certificate expiration is calculated. The math we studied—like modular arithmetic and entropy—shows up here in real-world action. We want to make invisible processes visible.
-      </p>
+      <div class="about-card">
+        <h3>Our Approach to Privacy</h3>
+        <p>
+          We never store full URLs. Instead, we hash every input with SHA-256, turning even dangerous links into anonymized fingerprints. This lets us protect users without peeking into their activity.
+        </p>
+        <img src="hashing-diagram.png" alt="SHA-256 diagram" class="about-image-small" />
+      </div>
+
+      <div class="about-card">
+        <h3>Future Projections</h3>
+        <p>
+          CryptoPhish will soon support full email body analysis. Users will paste suspicious emails into a secure sandbox, where red flags like QR codes, urgency language, and malicious domains are highlighted. In the long term, we envision an educational hub with cryptography visualizers, entropy heat maps, and interactive quizzes.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>Built for Security, Designed to Teach</h3>
+        <p>
+          We don't want users to just click “Scan” and leave. Every result on CryptoPhish includes short explanations of SHA-256 hashing, SSL expiration, and other concepts. The math we studied—like modular arithmetic and entropy—comes alive in practical, everyday use.
+        </p>
+      </div>
     </div>
   </section>
-
-  <script>
-    function toggleFuture() {
-      const content = document.getElementById("future-content");
-      const icon = document.querySelector(".expand-icon");
-      content.classList.toggle("hidden");
-      icon.textContent = content.classList.contains("hidden") ? "+" : "−";
-    }
-  </script>
 </body>
 </html>
