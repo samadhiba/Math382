@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>FAQ - CryptoPhish</title>
 </head>
-
 <body>
-    <header>
-        <h1 class="title">CryptoPhish</h1>
-        <div class="button-group">
-            <button onclick="location.href='website.html'">Home</button>
-            <button onclick="location.href='report.html'">Submit Phishing</button>
-            <button onclick="location.href='check.html'">Check URL</button>
-            <button onclick="location.href='faq.html'">FAQ</button>
-            <button onclick="location.href='about.html'">About</button>
-        </div>
-    </header>
+  <header>
+    <h1 class="title">CryptoPhish</h1>
+    <div class="button-group">
+      <button onclick="location.href='website.html'">Home</button>
+      <button onclick="location.href='report.html'">Submit Phishing</button>
+      <button onclick="location.href='stats.html'">Threat Stats</button>
+      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="location.href='about.html'">About</button>
+    </div>
+  </header>
 
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <h3>❓ Why do you hash URLs instead of storing them directly?</h3>
+      <p>We prioritize user privacy. Instead of storing raw URLs, we use SHA-256 hashes to anonymize the data. This ensures that your browsing or input remains secure while still enabling phishing detection through hash comparisons.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>❓ How reliable is SHA-256 for phishing detection?</h3>
+      <p>SHA-256 is a cryptographic hash function that provides a fixed-length output from any input. It’s collision-resistant, meaning it's unlikely two URLs will hash to the same value. While SHA-256 doesn’t *detect* phishing directly, it allows us to maintain a secure blacklist of known threats without storing sensitive URLs.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>❓ How does CryptoPhish verify a threat?</h3>
+      <p>We combine community-submitted reports with technical indicators like SSL certificate checks, domain age, and pattern matching. Our system flags known bad hashes and encourages human judgment through transparency, not black-box models.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>❓ What happens when a URL is flagged?</h3>
+      <p>If a submitted URL hash matches our database, it will display a red warning along with an explanation. If a user submits a new report, our team (or algorithm, depending on deployment stage) reviews it for indicators of phishing before adding it to the database.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>❓ Can a “clean” result still be dangerous?</h3>
+      <p>Yes. A “clean” status simply means the URL is not in our current hash database. Phishing is an evolving threat, so users should always proceed with caution. Look for signs of urgency, spelling mistakes, suspicious attachments, or unexpected requests for sensitive data.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>❓ How does this project connect to cryptography concepts?</h3>
+      <p>CryptoPhish applies concepts like entropy, collision resistance, and hash table design to ensure secure threat detection. We also plan to add math explainers on topics like modular arithmetic and SSL handshake validation for educational purposes.</p>
+    </div>
+  </section>
 </body>
 </html>
