@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Threat Stats - CryptoPhish</title>
+</head>
+<body>
+  <header>
+    <h1 class="title">CryptoPhish</h1>
+    <div class="button-group">
+      <button onclick="location.href='website.html'">Home</button>
+      <button onclick="location.href='check.html'">Check URL</button>
+      <button onclick="location.href='report.html'">Submit Report</button>
+      <button onclick="location.href='stats.html'">Threat Stats</button>
+      <button onclick="location.href='about.html'">About</button>
+    </div>
+  </header>
+
+  <section class="main-section">
+    <h2>Live Threat Statistics</h2>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <h3>88</h3>
+        <p>URLs Checked (24h)</p>
+      </div>
+      <div class="stat-box">
+        <h3>187</h3>
+        <p>Malicious Hashes Flagged</p>
+      </div>
+      <div class="stat-box">
+        <h3>32</h3>
+        <p>Community Reports Today</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trend-section">
+    <h2>Recent Threat Trends</h2>
+    <ul class="trend-list">
+      <li><strong>2:05 PM:</strong> Phishing attempt targeting student loans detected</li>
+      <li><strong>1:44 PM:</strong> QR code spoof link flagged from mobile device</li>
+      <li><strong>12:22 PM:</strong> SSL mismatch reported by user</li>
+    </ul>
+  </section>
+
+  <section class="crypto-note">
+    <h2>How This Relates to Cryptography</h2>
+    <p>
+      All URLs are hashed using <strong>SHA-256</strong>, a cryptographic function designed to minimize collision risk. Our detection relies on comparing these hashes to known threats, enabling fast and private lookups using mathematical properties of hash functions.
+    </p>
+  </section>
+</body>
+</html>
