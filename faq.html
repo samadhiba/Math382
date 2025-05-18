@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="styles.css" />
-  <title>FAQ - CryptoPhish</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>FAQ | CryptoPhish</title>
 </head>
 <body>
   <header>
@@ -20,50 +21,66 @@
 
   <section class="faq-section">
     <h2>Frequently Asked Questions</h2>
-    <p class="faq-intro">This page explains the cryptographic logic, design choices, and user protections behind CryptoPhish. Click on any question to learn more.</p>
+    <p class="faq-intro">
+      Our platform was built to encourage learning and foster digital safety. These questions explain the philosophy behind CryptoPhish, from its cryptographic structure to its human-centered design.
+    </p>
 
     <div class="accordion">
+
       <div class="accordion-item">
-        <button class="accordion-question">🔒 Why hash URLs instead of storing them?</button>
+        <button class="accordion-question">Why does CryptoPhish avoid storing full URLs?</button>
         <div class="accordion-answer">
-          <p>We use SHA-256 hashing to ensure user privacy. When a URL is submitted, it’s transformed into a cryptographic hash—a string of fixed-length characters that reveals nothing about the original input. This lets us match known threats without ever storing or exposing full URLs.</p>
+          <p>
+            We prioritize user privacy by never storing the original input. Instead, we use SHA256 hashing to convert each URL into a unique fingerprint. This means we can detect previously flagged content without ever keeping the data itself.
+          </p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-question">🧠 How does SHA-256 help prevent phishing?</button>
+        <button class="accordion-question">How does CryptoPhish determine if a URL is unsafe?</button>
         <div class="accordion-answer">
-          <p>While SHA-256 doesn't *detect* phishing on its own, it provides a secure method to track known malicious URLs. It acts like a digital fingerprint: if a URL has been previously flagged and hashed, we can match it instantly—without revealing the original input or risking data exposure.</p>
+          <p>
+            CryptoPhish evaluates submissions using multiple techniques, including hash matching, SSL certificate validation, and pattern recognition. We also consider behavioral clues such as urgency language, impersonated institutions, and user-reported trends.
+          </p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-question">📊 What happens when a URL is flagged?</button>
+        <button class="accordion-question">What is the purpose of hashing in this system?</button>
         <div class="accordion-answer">
-          <p>Flagged hashes trigger a warning on screen. Behind the scenes, our system also logs it for future analysis and alerts moderators if needed. We don’t just store these hashes—we learn from them, improving detection patterns through a combination of logic, frequency, and user reports.</p>
+          <p>
+            Hashing lets us recognize a match without revealing the original URL. Think of it as comparing shadows instead of the objects themselves. If a shadow matches a previously known threat, we can flag it without needing to know where it came from.
+          </p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-question">🧪 How does CryptoPhish detect threats?</button>
+        <button class="accordion-question">Is a “clean” result always safe to trust?</button>
         <div class="accordion-answer">
-          <p>We layer SHA-256 hash matching with SSL certificate validation, age-of-domain checks, and pattern recognition. This helps us identify both known and emerging threats. Users can also submit hashes they suspect are dangerous, making the system smarter through community insight.</p>
+          <p>
+            A clean result only means that the URL hash is not in our database. It does not guarantee that the website is safe. You should always assess context, look for spelling errors, suspicious requests, and unexpected redirects before trusting any link.
+          </p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-question">⚠️ Is a “clean” result always safe?</button>
+        <button class="accordion-question">What role do user submissions play in CryptoPhish?</button>
         <div class="accordion-answer">
-          <p>Not necessarily. A “clean” result only means we haven’t seen that URL hash before. Users should still look for red flags: urgency cues, bad grammar, suspicious links, and requests for sensitive info. CryptoPhish is a tool—not a guarantee—and we encourage layered caution.</p>
+          <p>
+            Submissions are the heart of our system. Every user-submitted URL helps us identify new threats, train our detection logic, and understand how phishing tactics are evolving. This makes CryptoPhish both reactive and proactive in keeping users safe.
+          </p>
         </div>
       </div>
 
       <div class="accordion-item">
-        <button class="accordion-question">🔍 How does this connect to cryptography?</button>
+        <button class="accordion-question">How is CryptoPhish different from commercial threat databases?</button>
         <div class="accordion-answer">
-          <p>CryptoPhish applies cryptographic principles such as one-way hashing, entropy analysis, and SSL verification. We turn textbook ideas—like hash collisions and modular expiration checks—into real, user-facing tools that empower digital safety without sacrificing clarity.</p>
+          <p>
+            CryptoPhish is not a corporate product. It is a learning-driven, privacy-respecting tool designed to make detection more transparent. We aim to teach users what makes links suspicious, while still offering meaningful protection powered by community input.
+          </p>
         </div>
       </div>
+
     </div>
   </section>
 
