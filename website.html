@@ -59,15 +59,17 @@
       const isMalicious = maliciousHashes.includes(hash);
 
       resultDiv.innerHTML = isMalicious
-        ? `<span style="color:red;">❌ Malicious URL Detected</span>`
-        : `<span style="color:green;">✅ Clean (No Match Found)</span>`;
+        ? `<span class="malicious">❌ Malicious URL Detected</span>`
+        : `<span class="clean">✅ Clean (No Match Found)</span>`;
+
 
       explainDiv.innerHTML = `
         <p><strong>SHA-256 Hash:</strong> ${hash}</p>
         <p>This input was ${isRawHash ? "interpreted as a SHA-256 hash" : "converted to a SHA-256 hash"}.</p>
-        <p>${isMalicious
-          ? "⚠️ This hash matches a known phishing URL in our database."
-          : "✅ No match found in the known phishing list. This does not guarantee the URL is safe, but it's not in our list."}</p>
+        <p class="${isMalicious ? "warning" : "safe"}">
+  ${isMalicious
+    ? "⚠️ This hash matches a known phishing URL in our database."
+    : "✅ No match found in the known phishing list. This does not guarantee the URL is safe, but it's not in our list."}</p>
       `;
     }
   </script>
